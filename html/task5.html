@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 5</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">Задача 5. Дано масив елементів. Знайти добуток додатних елементів</p>
+        <script>
+          //Кількість елементів масиву
+          const arrayElementsQuantity = parseInt(prompt("Введіть необхідну кількість елементів масиву"))
+
+          // Мінімальне випадкове число
+          const minArrayNumber = parseInt(prompt("Введіть мінімальне(від'ємне) число в масиві", "-100"))
+
+          // Максимальне випадкове число
+          const maxArrayNumber = parseInt(prompt("Введіть максимальне(додатнє) число в масиві", "100"))
+
+          // Функція, що генерує випадкові числа від min до max
+          function generateRandomNumber(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+          }
+
+          // Функція, що заповнює масив випадковими елементами
+          function fillArray(quantity, minNumber, maxNumber) {
+            const tempArray = []
+            for (let i = 0; i < quantity; i++) {
+              tempArray.push(generateRandomNumber(minNumber, maxNumber))
+            }
+            return tempArray
+          }
+
+          // Функція що фільтрує значення масиву
+          function productWithPositiveNumbersArray(arr) {
+            let product = 1
+            for (const num of arr) {
+              if (num > 0) {
+                product *= num
+              }
+            }
+            return product
+          }
+          const elementsArray = fillArray(arrayElementsQuantity, minArrayNumber, maxArrayNumber)
+          const product = productWithPositiveNumbersArray(elementsArray)
+
+          document.write(`
+            <p>${product}</p>
+            `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>

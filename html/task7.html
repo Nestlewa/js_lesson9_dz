@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 7</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">
+          Задача 7. Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки
+        </p>
+        <script>
+          //Кількість елементів масиву
+          const arrayElementsQuantity = parseInt(prompt("Введіть необхідну кількість елементів масиву"))
+
+          // Мінімальне випадкове число
+          const minArrayNumber = parseInt(prompt("Введіть мінімальне число в масиві", "100"))
+
+          // Максимальне випадкове число
+          const maxArrayNumber = parseInt(prompt("Введіть максимальне число в масиві", "10000"))
+
+          const minPriceForDiscount = 1000
+
+          const discountPersentage = 0.3
+
+          // Функція, що генерує випадкові числа від min до max
+          function generateRandomNumber(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+          }
+
+          // Функція, що заповнює масив випадковими елементами
+          function fillPricesArray(quantity, minNumber, maxNumber) {
+            const tempArray = []
+            for (let i = 0; i < quantity; i++) {
+              tempArray.push(generateRandomNumber(minNumber, maxNumber))
+            }
+            return tempArray
+          }
+
+          const pricesArray = fillPricesArray(arrayElementsQuantity, minArrayNumber, maxArrayNumber)
+          const discountedPricesArray = pricesArray.map((price, i, arr) =>
+            price > minPriceForDiscount ? price - price * discountPersentage : price
+          )
+
+          document.write(`
+          <p>Масив з цінами товарів <br> ${pricesArray.join("<br>")}</p>
+          <p>Масив із цінами товарів включаючи ціни зі знижками <br> ${discountedPricesArray.join("<br>")}</p>
+          `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>

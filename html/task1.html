@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">
+          Задача 1. Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості
+          елементів заповнених нулями
+        </p>
+        <script>
+          const elementsQuantity = parseInt(prompt("Введіть кількість елементів масиву"))
+          let elementsArray = new Array(elementsQuantity).fill(0)
+
+          document.write(`
+              <p>${elementsArray}</p>
+              `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>

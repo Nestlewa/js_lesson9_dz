@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 10</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">
+          Задача 10. Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величину сплаченого
+          податку у грн
+        </p>
+        <script>
+          const pricesQuantity = parseInt(prompt("Введіть кількість елементів у масиві"))
+          const minPriceValue = parseInt(prompt("Введіть мінімальну ціну (ціле число) у гривнях"))
+          const maxPriceValue = parseInt(prompt("Введіть максимальну ціну (ціле число у гривнях"))
+          const taxRate = 0.2
+
+          function generateRandomPrices(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+          }
+
+          function fillRandomPricesArray(quantity, min, max) {
+            let tempArr = []
+            for (let i = 0; i < quantity; i++) {
+              tempArr.push(generateRandomPrices(minPriceValue, maxPriceValue))
+            }
+            return tempArr
+          }
+
+          const pricesArray = fillRandomPricesArray(pricesQuantity, minPriceValue, maxPriceValue)
+          const taxPayedPart = pricesArray.map((price) => price * taxRate)
+
+          document.write(`
+          <p>Масив цін <br> ${pricesArray.join("; ")}</p>
+          <p>Масив з величинами податків <br> ${taxPayedPart.join("<br>")}</p>
+          `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">
+          Задача 3. Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями,
+          а інші до кінця масиву заповнені 7-ками.
+        </p>
+        <script>
+          // Кількість елементів в масиві
+          const elementsQuantity = parseInt(prompt("Введіть кількість елементів масиву"))
+
+          // Створюємо масив з визначеною кількістю елементів та запомнюємо перші 5 одиницями
+          const elementsArray = new Array(elementsQuantity).fill(1, 0, 5)
+
+          // Функція, яка заповнює масив значеннями 7 починаючи з 5 індекса
+          function fillArraySecondPart(elementsQuantity, arr) {
+            for (let i = 5; i < arr.length; i++) {
+              arr[i] = 7
+            }
+          }
+
+          // Викликаємо функцію заповнення масиву
+          fillArraySecondPart(elementsQuantity, elementsArray)
+
+          document.write(`
+            <p>${elementsArray}</p>
+            `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>

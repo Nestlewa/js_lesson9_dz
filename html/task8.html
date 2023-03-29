@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 8</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">
+          Задача 8. Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+        </p>
+        <script>
+          //Дано послідовність номерів авто
+          const carLicensePlateArray = [
+            "CB2325AK",
+            "AB4585BH",
+            "CB0993EK",
+            "CB0901CC",
+            "CB1040EC",
+            "AA2325AI",
+            "AM4589CB",
+            "KI4785BB",
+            "KO9854BN",
+            "AK2587MM",
+            "FF2205FK",
+            "KK8102AA",
+            "FLG02",
+            "AL02",
+            "AD051",
+          ]
+
+          const filteredFirstLetterACarLicenseArray = carLicensePlateArray.filter((letter) => letter[0] === "A")
+
+          document.write(`
+          <p>Масив з номерами автомобілів, які починаються на А <br> ${filteredFirstLetterACarLicenseArray.join(
+            "<br>"
+          )}</p>
+          `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>

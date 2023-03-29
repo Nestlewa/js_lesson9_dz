@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 4</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">
+          Задача 4. Дано масив елементів. Вивести на екран елементи, що більші за 100
+        </p>
+        <script>
+          //Кількість елементів масиву
+          const arrayElementsQuantity = parseInt(prompt("Введіть необхідну кількість елементів масиву"))
+
+          // Мінімальне випадкове число
+          const minArrayNumber = parseInt(prompt("Введіть мінімальне число в масиву, менше 100"))
+
+          // Максимальне випадкове число
+          const maxArrayNumber = parseInt(prompt("Введіть максимальне число в масиву, більше 100"))
+
+          // Функція, що генерує випадкові числа від min до max
+          function generateRandomNumber(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+          }
+
+          // Функція, що заповнює масив випадковими елементами
+          function fillArray(quantity, minNumber, maxNumber) {
+            const tempArray = []
+            for (let i = 0; i < quantity; i++) {
+              tempArray.push(generateRandomNumber(minNumber, maxNumber))
+            }
+            return tempArray
+          }
+
+          // Функція що фільтрує значення масиву
+          function filterArrayNumbersMoreThan100(arr) {
+            let tempArr = []
+            for (const num of arr) {
+              if (num > 100) {
+                tempArr.push(num)
+              }
+            }
+            return tempArr
+          }
+          const elementsArray = fillArray(arrayElementsQuantity, minArrayNumber, maxArrayNumber)
+          const filteredArrayWithNumbersMore100 = filterArrayNumbersMoreThan100(elementsArray)
+
+          document.write(`
+            <p>${filteredArrayWithNumbersMore100}</p>
+            `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>

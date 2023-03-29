@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Task 6</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="wrapper__task math-task">
+        <a href="../index.html" class="math-task__link">До списку задач</a>
+        <p class="math-task__description">
+          Задача 6. Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2
+        </p>
+        <script>
+          //Кількість елементів масиву
+          const arrayElementsQuantity = parseInt(prompt("Введіть необхідну кількість елементів масиву"))
+
+          // Мінімальне випадкове число
+          const minArrayNumber = parseInt(prompt("Введіть мінімальне число в масиві", "1"))
+
+          // Максимальне випадкове число
+          const maxArrayNumber = parseInt(prompt("Введіть максимальне число в масиві", "100"))
+
+          // Функція, що генерує випадкові числа від min до max
+          function generateRandomNumber(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+          }
+
+          // Функція, що заповнює масив випадковими елементами
+          function fillArray(quantity, minNumber, maxNumber) {
+            const tempArray = []
+            for (let i = 0; i < quantity; i++) {
+              tempArray.push(generateRandomNumber(minNumber, maxNumber))
+            }
+            return tempArray
+          }
+
+          const randomNumbersArray = fillArray(arrayElementsQuantity, minArrayNumber, maxArrayNumber)
+          const changedArrayOfRandomNumbers = randomNumbersArray.map((num, i, arr) => (arr[0] < num ? num * 2 : num))
+
+          document.write(`
+          <p>Масив з випадковими числами - ${randomNumbersArray}</p>
+          <p>Масив зі збільшеними вдвічі елементами, які були більше за перший елемент - ${changedArrayOfRandomNumbers}</p>
+          `)
+        </script>
+      </section>
+    </div>
+  </body>
+</html>
